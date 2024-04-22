@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate"
 
+/**
+ * Search component for searching and selecting cities asynchronomously
+ * @param {Object} props - The props passed to the Search Component. 
+ * @params {Function} props.onSearchChange - Function to be called when a city is selected.
+ * @returns {JSX.Element} - JSX for rendering the Search component.
+ */
 
 const Search = ({onSearchChange}) => {
 
   const [search, setSearch] = useState(null);
 
+  // State for managing the search query
   const handleOnChange = (searchData) => {
     setSearch(searchData);
-    onSearchChange(searchData);
+    onSearchChange(searchData); // Call the parent component's callback function with selected data
   }
 
   return (
