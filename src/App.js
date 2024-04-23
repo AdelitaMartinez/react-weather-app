@@ -1,5 +1,6 @@
 import Search from './components/search/search';
 import './App.css';
+import CurrentWeather from './components/search/current-weather/cuurent-weather';
 
 /**
  * Main application componenet.
@@ -17,6 +18,7 @@ function App() {
     <div className="container">
       {/* Render the Search componenet and pass the callback function */}
       <Search onSearchChange={handleOnSearchChange}/>
+      < CurrentWeather /> 
     </div>
   );
 }
