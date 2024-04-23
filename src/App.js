@@ -1,6 +1,6 @@
 import Search from './components/search/search';
 import './App.css';
-import CurrentWeather from './components/search/current-weather/cuurent-weather';
+import CurrentWeather from './components/search/current-weather/current-weather';
 
 /**
  * Main application componenet.
