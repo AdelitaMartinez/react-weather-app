@@ -14,7 +14,9 @@ const Search = ({onSearchChange}) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = (inputValue) => {
-    return fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, options)
+    // Fetch from API URL, cities with min population
+    return fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOption)
+    // Then we get response from Json, then log out response
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err))
