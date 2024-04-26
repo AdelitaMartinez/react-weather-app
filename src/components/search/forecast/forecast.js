@@ -3,6 +3,7 @@ import {
   AccordionItemHeading,
   AccordionItem,
   AccordionItemPanel,
+  AccordionItemButton
 } from "react-accessible-accordion";
 
 const Forecast = ({ data }) => {
@@ -11,10 +12,14 @@ const Forecast = ({ data }) => {
       <label className="title">Daily</label>
       <Accordion allowZeroExpanded>
         {data.list.splice(0, 7).map((item, idx) => (
-          <AccordionItemPanel>
-            <AccordionItemHeading></AccordionItemHeading>
+          <AccordionItem key={idx}>
+            <AccordionItemHeading>
+              <AccordionItemButton>
+                Hello
+              </AccordionItemButton>
+            </AccordionItemHeading>
             <AccordionItemPanel></AccordionItemPanel>
-          </AccordionItemPanel>
+          </AccordionItem>
         ))}
       </Accordion>
     </>
