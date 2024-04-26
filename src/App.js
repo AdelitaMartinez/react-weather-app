@@ -16,6 +16,15 @@ function App() {
     let [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
+    const forcastFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
+    
+    Promise.add([currentWeatherFetch, forecastFetch])
+      .then(async (response) => {
+        const weatherResponse = await response[0].json()
+      })
+
+    api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
+
 
   }
 
