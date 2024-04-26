@@ -1,5 +1,10 @@
 const Forecast = () => {
-  return 'hello'
+  return ( 
+ <>
+  <label className="title">Daily</label>
+  
+  </>
+  )
 }
 
 export default Forecast;
