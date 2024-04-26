@@ -9,6 +9,9 @@ import {
 const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 const Forecast = ({ data }) => {
+  let dayInAWeek = new Date().getDay();
+  WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInAWeek))
+
   return (
     <>
       <label className="title">Daily</label>
