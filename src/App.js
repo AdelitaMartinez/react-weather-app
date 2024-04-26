@@ -30,14 +30,14 @@ function App() {
         setForecast({ city: searchData.label, ...forecastResponse});
       })
       .catch((err) => console.log(err));
-
   }
+
 
   return (
     <div className="container">
       {/* Render the Search componenet and pass the callback function */}
       <Search onSearchChange={handleOnSearchChange}/>
-      < CurrentWeather /> 
+    {currentWeather && <CurrentWeather data={currentWeather} /> }
     </div>
   );
 }
