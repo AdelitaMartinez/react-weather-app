@@ -39,7 +39,7 @@ function App() {
       {/* Render the Search componenet and pass the callback function */}
       <Search onSearchChange={handleOnSearchChange}/>
     {currentWeather && <CurrentWeather data={currentWeather} /> }
-    < Forecast />
+    {forecast && < Forecast data={forecast} />}
     </div>
   );
 }
