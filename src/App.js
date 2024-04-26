@@ -3,6 +3,7 @@ import './App.css';
 import CurrentWeather from './components/search/current-weather/current-weather';
 import { WEATHER_API_URL } from './api';
 import { WEATHER_API_KEY } from './api';
+import { useState } from 'react';
 
 /**
  * Main application componenet.
@@ -11,20 +12,23 @@ import { WEATHER_API_KEY } from './api';
  */
 
 function App() {
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
 
   const handleOnSearchChange = (searchData) => {
     let [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
-    const forcastFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
+    const forecastFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`)
     
     Promise.add([currentWeatherFetch, forecastFetch])
       .then(async (response) => {
-        const weatherResponse = await response[0].json()
+        const weatherResponse = await response[0].json();
+        const forecastResponse = await response[1].json();
+
+        setCurrentWeather(weatherResponse);
+        setForecast(forecastResponse);
       })
-
-    api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
-
 
   }
 
