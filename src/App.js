@@ -1,6 +1,8 @@
 import Search from './components/search/search';
 import './App.css';
 import CurrentWeather from './components/search/current-weather/current-weather';
+import { WEATHER_API_URL } from './api';
+import { WEATHER_API_KEY } from './api';
 
 /**
  * Main application componenet.
@@ -13,7 +15,7 @@ function App() {
   const handleOnSearchChange = (searchData) => {
     let [lat, lon] = searchData.value.split(" ");
 
-    const currentWeatherFetch = fetch(`/weather?lat={lat}&lon={lon}&appid={API key}`)
+    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat={lat}&lon={lon}&appid=${WEATHER_API_KEY}`)
 
   }
 
