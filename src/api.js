@@ -1,4 +1,4 @@
-export const geoApiOption = {
+export const geoApiOptions = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': 'c4e1a6df8emshc612b9e7a0cbce6p19afd8jsn8b5e65e72e7a',
