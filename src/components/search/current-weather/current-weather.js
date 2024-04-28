@@ -2,6 +2,11 @@ import React from "react";
 import "./current-weather.css";
 
 const CurrentWeather = ({ data }) => {
+
+  if (!data || !data.weather || !data.weather[0]) {
+    return <div>No weather data available</div>
+  }
+
   return (
     <div className="weather">
       <div className="top">
